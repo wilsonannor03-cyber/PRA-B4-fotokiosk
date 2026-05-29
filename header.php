@@ -1,5 +1,5 @@
-<?php require_once __DIR__.'backend/config.php'; ?>
-<?php require_once __DIR__.'backend/conn.php'; ?>
+<?php require_once __DIR__.'/backend/config.php'; ?>
+<?php require_once __DIR__.'/backend/conn.php'; ?>
  
 <header class="site-header">
     <div class="page-title">
