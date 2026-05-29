@@ -12,5 +12,5 @@ $dbUser = 'root';
 $dbPass = '';
 
 //De url waarop jouw project staat. Géén slash aan het einde.
-$base_url = 'http://laragon/www/PRA-B4-fotokiosk';
+$base_url = 'http://PRA-B4-fotokiosk';
 
