@@ -14,10 +14,3 @@ $dbPass = '';
 //De url waarop jouw project staat. Géén slash aan het einde.
 $base_url = 'http://local/fotokisok';
 
-try {
-    $conn = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Database verbinding mislukt: " . $e->getMessage();
-    exit;
-}
