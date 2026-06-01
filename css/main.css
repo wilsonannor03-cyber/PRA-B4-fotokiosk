@@ -12,6 +12,19 @@ html, body {
     width: 100%;
     box-sizing: border-box;
 }
+.main-homepage {
+  position: relative;
+  background-image: url("../img/site_w2400_pretpark-algemeen_72594cc3db.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
 
 .header-container {
     display: flex;
