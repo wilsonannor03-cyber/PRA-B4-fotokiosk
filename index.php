@@ -8,21 +8,22 @@
 <body>
 
     <?php
-    // Haal de gekozen filter op uit de URL (leeg = alle dagen tonen)
     $filterDag = isset($_GET['filter_dag']) ? $_GET['filter_dag'] : '';
 
-    $images = [];
+    $images =
+    
+    
+    
+    +3[];
 
-    // Haal alle mappen op uit fotos/fotos/
     $folders = glob("fotos/fotos/*", GLOB_ONLYDIR);
 
     foreach ($folders as $folder) {
         $folderName = basename($folder);
 
-        // Als er gefilterd is, controleer of de mapnaam begint met het cijfer van die dag
         if ($filterDag !== '') {
             if (strpos($folderName, $filterDag . '_') !== 0) {
-                continue; // Sla mappen over die niet bij de gekozen dag horen
+                continue; 
             }
         }
 
@@ -41,11 +42,9 @@
     $start = ($page - 1) * $perPage;
     $imagesPage = array_slice($images, $start, $perPage);
 
-    // Zorg dat de filter onthouden wordt tijdens het bladeren (paginering)
     $filterParam = $filterDag !== '' ? "&filter_dag=" . $filterDag : '';
     ?>
 
-    <!-- Filter dropdown rechtsboven (vóór het grid geplaatst) -->
     <div style="display: flex; justify-content: flex-end; padding: 10px 0; margin-bottom: 15px;">
         <form method="GET" action="">
             <label for="filter_dag" style="margin-right: 8px; font-weight: bold;">Filter op dag:</label>
@@ -62,14 +61,12 @@
         </form>
     </div>
 
-    <!-- Jouw originele grid met afbeeldingen (exact ongewijzigd) -->
     <div class="grid">
         <?php foreach ($imagesPage as $img): ?>
             <img src="<?= $img ?>">
         <?php endforeach; ?>
     </div>
 
-    <!-- Paginering knoppen (Inclusief filter-behoud) -->
     <div class="pagination">
         <?php
             $range = 2; 
