@@ -31,7 +31,6 @@
         $images = array_merge($images, $imgs);
     }
 
-    // Paginering instellingen
     $perPage = 30;
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     if ($page < 1) $page = 1;
