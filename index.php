@@ -10,11 +10,7 @@
     <?php
     $filterDag = isset($_GET['filter_dag']) ? $_GET['filter_dag'] : '';
 
-    $images =
-    
-    
-    
-    +3[];
+    $images = [];
 
     $folders = glob("fotos/fotos/*", GLOB_ONLYDIR);
 
