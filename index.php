@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        $images = glob("images/*.jpg");
+        $images = glob("fotos/fotos");
 
         $perPage = 30;
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
