@@ -14,3 +14,21 @@ header .container {
     display: flex;
     align-items: center;
 }
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+.grid img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 5px;
+}
+.pagination a {
+    margin: 3px;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+}
