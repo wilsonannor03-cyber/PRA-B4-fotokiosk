@@ -34,7 +34,6 @@
             <img src="<?= $img ?>">
         <?php endforeach; ?>
     </div>
-    ]
     <div class="pagination">
 
         <?php
