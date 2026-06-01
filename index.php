@@ -8,16 +8,29 @@
 <body>
 
     <?php
+    // Haal de gekozen filter op uit de URL (leeg = alle dagen tonen)
+    $filterDag = isset($_GET['filter_dag']) ? $_GET['filter_dag'] : '';
 
     $images = [];
 
+    // Haal alle mappen op uit fotos/fotos/
     $folders = glob("fotos/fotos/*", GLOB_ONLYDIR);
 
     foreach ($folders as $folder) {
+        $folderName = basename($folder);
+
+        // Als er gefilterd is, controleer of de mapnaam begint met het cijfer van die dag
+        if ($filterDag !== '') {
+            if (strpos($folderName, $filterDag . '_') !== 0) {
+                continue; // Sla mappen over die niet bij de gekozen dag horen
+            }
+        }
+
         $imgs = glob($folder . "/*.{jpg,jpeg,png,JPG,JPEG,PNG}", GLOB_BRACE);
         $images = array_merge($images, $imgs);
     }
 
+    // Paginering instellingen
     $perPage = 30;
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     if ($page < 1) $page = 1;
@@ -27,23 +40,45 @@
 
     $start = ($page - 1) * $perPage;
     $imagesPage = array_slice($images, $start, $perPage);
+
+    // Zorg dat de filter onthouden wordt tijdens het bladeren (paginering)
+    $filterParam = $filterDag !== '' ? "&filter_dag=" . $filterDag : '';
     ?>
 
+    <!-- Filter dropdown rechtsboven (vóór het grid geplaatst) -->
+    <div style="display: flex; justify-content: flex-end; padding: 10px 0; margin-bottom: 15px;">
+        <form method="GET" action="">
+            <label for="filter_dag" style="margin-right: 8px; font-weight: bold;">Filter op dag:</label>
+            <select name="filter_dag" id="filter_dag" onchange="this.form.submit()" style="padding: 6px; border-radius: 4px; cursor: pointer;">
+                <option value="">-- Alle dagen --</option>
+                <option value="1" <?= $filterDag === '1' ? 'selected' : '' ?>>Maandag</option>
+                <option value="2" <?= $filterDag === '2' ? 'selected' : '' ?>>Dinsdag</option>
+                <option value="3" <?= $filterDag === '3' ? 'selected' : '' ?>>Woensdag</option>
+                <option value="4" <?= $filterDag === '4' ? 'selected' : '' ?>>Donderdag</option>
+                <option value="5" <?= $filterDag === '5' ? 'selected' : '' ?>>Vrijdag</option>
+                <option value="6" <?= $filterDag === '6' ? 'selected' : '' ?>>Zaterdag</option>
+                <option value="0" <?= $filterDag === '0' ? 'selected' : '' ?>>Zondag</option>
+            </select>
+        </form>
+    </div>
+
+    <!-- Jouw originele grid met afbeeldingen (exact ongewijzigd) -->
     <div class="grid">
         <?php foreach ($imagesPage as $img): ?>
             <img src="<?= $img ?>">
         <?php endforeach; ?>
     </div>
-    <div class="pagination">
 
+    <!-- Paginering knoppen (Inclusief filter-behoud) -->
+    <div class="pagination">
         <?php
             $range = 2; 
 
             if ($page > 1) {
-                echo "<a href='?page=" . ($page - 1) . "'>←</a> ";
+                echo "<a href='?page=" . ($page - 1) . $filterParam . "'>←</a> ";
             }
 
-            echo "<a href='?page=1'>1</a> ";
+            echo "<a href='?page=1" . $filterParam . "'>1</a> ";
 
             if ($page - $range > 2) {
                 echo "... ";
@@ -51,9 +86,9 @@
 
             for ($i = max(2, $page - $range); $i <= min($pages - 1, $page + $range); $i++) {
                 if ($i == $page) {
-                    echo "<a style='font-weight:bold;color:red;' href='?page=$i'>$i</a> ";
+                    echo "<a style='font-weight:bold;color:red;' href='?page=$i" . $filterParam . "'>$i</a> ";
                 } else {
-                    echo "<a href='?page=$i'>$i</a> ";
+                    echo "<a href='?page=$i" . $filterParam . "'>$i</a> ";
                 }
             }
 
@@ -62,14 +97,13 @@
             }
 
             if ($pages > 1) {
-                echo "<a href='?page=$pages'>$pages</a> ";
+                echo "<a href='?page=$pages" . $filterParam . "'>$pages</a> ";
             }
 
             if ($page < $pages) {
-                echo "<a href='?page=" . ($page + 1) . "'>→</a>";
+                echo "<a href='?page=" . ($page + 1) . $filterParam . "'>→</a>";
             }
         ?>
-
     </div>
 
 </body>
