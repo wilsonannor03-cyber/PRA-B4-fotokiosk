@@ -3,16 +3,24 @@
 
 <header class="site-header">
     <div class="header-container">
+
         <div class="page-title">
-            <a href="<?php echo $base_url; ?>/index.php">
+            <a href="<?php echo $base_url; ?>/home.php">
                 <img src="<?php echo $base_url; ?>/img/icon.png" width="50%" alt="Logo Developer Land">
             </a>
         </div>
-        
+
+        <nav class="header-nav">
+            <a href="<?php echo $base_url; ?>/index.php" class="gallery-link">
+                Fotogalerij
+            </a>
+        </nav>
+
         <div class="shopping-cart">
             <a href="<?php echo $base_url; ?>/winkelwagen.php" class="cart-emoji">
                 🛒
             </a>
         </div>
+
     </div>
 </header>
