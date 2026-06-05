@@ -14,6 +14,10 @@ if (isset($_POST['add_to_cart'])) {
     }
 }
 ?>
+<?php
+header("Location: home.php");
+exit;
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
