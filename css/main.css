@@ -5,12 +5,17 @@ html, body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
 }
-
 .site-header {
     background-color: #1e90ff;
     padding: 15px 30px;
     width: 100%;
     box-sizing: border-box;
+
+}
+.site-header img {
+    width: 300px;
+    height: auto;
+    margin-left: 150px; /* pas dit getal aan */
 }
 .main-homepage {
   position: relative;
@@ -28,14 +33,28 @@ html, body {
 
 .header-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    justify-content: flex-start; 
 }
 
 .page-title {
     display: flex;
     align-items: center;
+    width: auto; 
+}
+
+.header-nav {
+    display: flex;
+    gap: 30px;          
+    margin-left: 60px;  
+}
+
+.shopping-cart {
+    margin-left: auto;  
+}
+.shopping-cart {
+    margin-left: auto;  
 }
 
 /* Styling voor het Developer Land logo afbeelding */
@@ -46,7 +65,7 @@ html, body {
 }
 
 .cart-emoji {
-    font-size: 2.5rem;
+    font-size: 5rem; 
     text-decoration: none;
     line-height: 1;
 }
@@ -189,7 +208,7 @@ html, body {
     height: fit-content;
 }
 
-/* Header binnen het bestelblok */
+
 .order-header {
     display: flex;
     justify-content: center;
@@ -353,13 +372,14 @@ html, body {
 }
 
 .gallery-link {
-    color: #7CFC90; 
-    font-size: 22px;
+    color: #7CFC90;
     font-weight: bold;
     text-decoration: none;
-
     -webkit-text-stroke: 1px white;
+    font-size: 40px; 
+    margin-right: 20px;
 }
+
 
 .gallery-link:hover {
     color: darkgreen;

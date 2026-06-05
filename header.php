@@ -3,16 +3,17 @@
 
 <header class="site-header">
     <div class="header-container">
-
-        <div class="page-title">
-            <a href="<?php echo $base_url; ?>/home.php">
-                <img src="<?php echo $base_url; ?>/img/icon.png" width="50%" alt="Logo Developer Land">
-            </a>
-        </div>
-
+            <img src="<?php echo $base_url; ?>/img/icon.png" width="25%" alt="Logo Developer Land">
         <nav class="header-nav">
+            <a href="<?php echo $base_url; ?>/index.php" class="gallery-link">
+                Home
+            </a>
+
             <a href="<?php echo $base_url; ?>/fotogalerij.php" class="gallery-link">
                 Fotogalerij
+            </a>
+            <a href="<?php echo $base_url; ?>/formulier.php" class="gallery-link">
+                Feedback
             </a>
         </nav>
 
