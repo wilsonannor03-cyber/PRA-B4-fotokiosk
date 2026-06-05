@@ -11,7 +11,7 @@
         </div>
 
         <nav class="header-nav">
-            <a href="<?php echo $base_url; ?>/index.php" class="gallery-link">
+            <a href="<?php echo $base_url; ?>/fotogalerij.php" class="gallery-link">
                 Fotogalerij
             </a>
         </nav>

@@ -42,7 +42,7 @@ if (isset($_POST['bestellen_afronden'])) {
 
         <div class="order-header">
             <h2>Bestelpagina</h2>
-            <a href="home.php" class="order-home-icon">🏠</a>
+            <a href="index.php" class="order-home-icon">🏠</a>
         </div>
 
         <?php if ($bestellingAfgerond): ?>
