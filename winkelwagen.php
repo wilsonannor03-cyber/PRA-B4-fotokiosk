@@ -1,4 +1,4 @@
-<<?php
+<?php
 session_start();
 
 $winkelwagen = $_SESSION['winkelwagen'] ?? [];
@@ -29,11 +29,14 @@ if (isset($_POST['bestellen_afronden'])) {
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+
     <?php require_once 'header.php'; ?>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestelpagina - Developer Land</title>
     <link rel="stylesheet" href="css/main.css">
+
 </head>
 <body>
 
@@ -104,18 +107,10 @@ if (isset($_POST['bestellen_afronden'])) {
 
                             <form method="post">
 
-                                <input
-                                    type="hidden"
-                                    name="index"
-                                    value="<?= $index ?>">
+                                <input type="hidden" name="index" value="<?= $index ?>">
 
-                                <button
-                                    type="submit"
-                                    name="remove_item"
-                                    class="remove-btn">
-
+                                <button type="submit" name="remove_item" class="remove-btn">
                                     Verwijderen
-
                                 </button>
 
                             </form>
@@ -137,11 +132,25 @@ if (isset($_POST['bestellen_afronden'])) {
                     </label>
                 </div>
 
-                <form method="post">
-                    <button type="submit" name="bestellen_afronden" class="order-finish-btn">
-                        Bestellen afronden
-                    </button>
-                </form>
+                <?php if (!isset($_SESSION['username'])): ?>
+
+                    <p class="login-warning">
+                        Je moet eerst inloggen om je bestelling af te ronden.
+                    </p>
+
+                    <a href="login.php" class="login-btn">
+                        Inloggen
+                    </a>
+
+                <?php else: ?>
+
+                    <form method="post">
+                        <button type="submit" name="bestellen_afronden" class="order-finish-btn">
+                            Bestellen afronden
+                        </button>
+                    </form>
+
+                <?php endif; ?>
 
             </div>
 

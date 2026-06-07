@@ -15,7 +15,7 @@ html, body {
 .site-header img {
     width: 300px;
     height: auto;
-    margin-left: 150px; /* pas dit getal aan */
+    margin-left: 150px; 
 }
 .main-homepage {
   position: relative;
@@ -41,13 +41,13 @@ html, body {
 .page-title {
     display: flex;
     align-items: center;
-    width: auto; 
+    width: 120px; 
 }
 
 .header-nav {
     display: flex;
     gap: 30px;          
-    margin-left: 60px;  
+    margin-left: 0px;  
 }
 
 .shopping-cart {
@@ -57,7 +57,6 @@ html, body {
     margin-left: auto;  
 }
 
-/* Styling voor het Developer Land logo afbeelding */
 .site-logo {
     height: 65px;
     width: auto;
@@ -183,17 +182,12 @@ html, body {
     background-color: #2e825b;
 }
 
-/* ========================================== */
-/* NIEUW: STYLING VOOR DE BESTELPAGINA        */
-/* ========================================== */
-
-/* Hoofdcontainer van de bestelpagina onder de header */
 .order-page-body {
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     padding: 40px 20px;
-    min-height: calc(100vh - 120px); /* Zorgt dat het grijs het scherm vult */
+    min-height: calc(100vh - 120px); 
     box-sizing: border-box;
 }
 
@@ -456,3 +450,84 @@ html, body {
     transform: scale(0.97);
 }
 
+.login-wrapper {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 400px;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #0078ff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    opacity: 0.9;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.login-extra {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-extra p {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.register-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.register-btn:hover {
+    opacity: 0.85;
+}
